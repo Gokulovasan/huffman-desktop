@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Archive Suite</title>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--color-primary)" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216ZM176,160a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,160Zm0-32a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Z"></path></svg>
+            </div>
+            <h1>Huffman Engine</h1>
+            <p>Lossless canonical compression.</p>
+        </header>
+
+        <div class="tabs">
+            <button id="tab-compress" class="active" aria-label="Compress Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216ZM128,112a8,8,0,0,1,8,8v32.69l10.34-10.35a8,8,0,0,1,11.32,11.32l-24,24a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L120,152.69V120A8,8,0,0,1,128,112Z"></path></svg>
+                Compress
+            </button>
+            <button id="tab-extract" aria-label="Extract Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-72-32v-32.69l10.34,10.35a8,8,0,0,0,11.32-11.32l-24-24a8,8,0,0,0-11.32,0l-24,24a8,8,0,0,0,11.32,11.32L120,151.31V184a8,8,0,0,0,16,0Z"></path></svg>
+                Extract
+            </button>
+        </div>
+
+        <div class="content">
+            <div class="input-group">
+                <input type="text" id="input-path" placeholder="Select Input File or Folder" readonly aria-label="Input Path" />
+                <div class="btn-group">
+                    <button class="icon-btn secondary" id="btn-input-file" aria-label="Select File" title="Select File">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path></svg>
+                    </button>
+                    <button class="icon-btn secondary" id="btn-input-dir" aria-label="Select Directory" title="Select Directory">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,72H130.67L102.93,51.2a16.12,16.12,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM40,64H93.33l16,12H40ZM216,200H40V92H216Z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="output-path" placeholder="Select Output Destination" readonly aria-label="Output Path" />
+                <button class="icon-btn secondary" id="btn-output" aria-label="Select Output Folder" title="Select Output Folder">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,72H130.67L102.93,51.2a16.12,16.12,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM40,64H93.33l16,12H40ZM216,200H40V92H216Z"></path></svg>
+                </button>
+            </div>
+
+            <button id="btn-action" class="primary">
+                Start Compression
+            </button>
+        </div>
+
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+            <div id="progress-text" class="progress-text">0%</div>
+        </div>
+
+        <div id="status" class="status-msg"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
